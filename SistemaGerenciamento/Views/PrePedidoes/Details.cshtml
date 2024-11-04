@@ -1,0 +1,63 @@
+﻿@model SistemaGerenciamento.Models.PrePedido
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes do Pré-Pedido</h2>
+
+<div>
+    <h4>Pré-Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHora)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+    </dl>
+</div>
+
+<h4>Itens do Pré-Pedido</h4>
+<div>
+    @if (Model.PrePedidoItens != null && Model.PrePedidoItens.Any())
+    {
+        <ul>
+            @foreach (var item in Model.PrePedidoItens)
+            {
+                <li>
+                    <strong>@item.ItemDoMenu.Nome</strong><br />
+                    @if (!string.IsNullOrEmpty(item.ItemDoMenu.Image))
+                    {
+                        <img src="@item.ItemDoMenu.Image" width="100" height="60" alt="@item.ItemDoMenu.Nome" />
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Sem itens no pré-pedido.</p>
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar para a Lista", "Index")
+</p>

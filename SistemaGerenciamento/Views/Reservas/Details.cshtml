@@ -1,0 +1,34 @@
+﻿@model SistemaGerenciamento.Models.Reserva
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>ID da Reserva</dt>
+        <dd>@Html.DisplayFor(model => model.Id)</dd>
+
+        <dt>Número da Mesa</dt>
+        <dd>@Html.DisplayFor(model => model.Mesa.Numero)</dd>
+
+        <dt>Data e Hora da Reserva</dt>
+        <dd>@Html.DisplayFor(model => model.DataHoraReserva)</dd>
+
+        <dt>Quantidade de Pessoas</dt>
+        <dd>@Html.DisplayFor(model => model.QuantidadePessoas)</dd>
+
+        <dt>Capacidade da Mesa</dt>
+        <dd>@Html.DisplayFor(model => model.Mesa.Capacidade)</dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

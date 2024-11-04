@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Bem-vindo ao Meu Restaurante";
+}
+
+<main>
+    <!-- Banner Principal -->
+    <section class="banner">
+        <div class="banner-content text-center text-white py-5">
+            <h1 class="display-4">Bem-vindo ao Meu Restaurante</h1>
+            <p class="lead">Experimente o melhor da culinária com ingredientes frescos e um ambiente acolhedor.</p>
+            <div class="d-flex justify-content-center mt-3">
+                <a href="/Reservas" class="btn btn-primary btn-lg mx-2">Faça sua Reserva &raquo;</a>
+                <a href="/PrePedidoes" class="btn btn-secondary btn-lg mx-2">Faça seu Pedido &raquo;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Destaques -->
+    <section class="container text-center my-5">
+        <h2 class="mb-4">Nossos Diferenciais</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="@Url.Content("~/ImagesST/ambiente.jpg")" class="rounded-circle img-fluid mb-3" alt="Ambiente Aconchegante" style="width: 200px; height: 200px;">
+                <h3>Ambiente Aconchegante</h3>
+                <p>Um espaço pensado para que você se sinta em casa, ideal para encontros e celebrações.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="@Url.Content("~/ImagesST/culinaria.jpg")" class="rounded-circle img-fluid mb-3" alt="Culinária Exclusiva" style="width: 200px; height: 200px;">
+                <h3>Culinária Exclusiva</h3>
+                <p>Descubra pratos exclusivos preparados com ingredientes selecionados para uma experiência única.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="@Url.Content("~/ImagesST/atendimento.jpg")" class="rounded-circle img-fluid mb-3" alt="Atendimento Excelente" style="width: 200px; height: 200px;">
+                <h3>Atendimento Excelente</h3>
+                <p>Nossa equipe está pronta para oferecer um serviço cordial e eficiente para tornar sua visita inesquecível.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Pratos Especiais -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Pratos Especiais</h2>
+            <p class="lead mb-5">Saboreie nossos pratos mais populares e preparados com carinho por nossos chefs.</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="@Url.Content("~/ImagesST/prato1.jpg")" class="img-fluid rounded" alt="Prato Especial 1">
+                    <h4 class="mt-3">Prato Especial 1</h4>
+                    <p>Descrição breve do prato e seus ingredientes.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="@Url.Content("~/ImagesST/prato2.jpg")" class="img-fluid rounded" alt="Prato Especial 2">
+                    <h4 class="mt-3">Prato Especial 2</h4>
+                    <p>Descrição breve do prato e seus ingredientes.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="@Url.Content("~/ImagesST/prato3.jpg")" class="img-fluid rounded" alt="Prato Especial 3">
+                    <h4 class="mt-3">Prato Especial 3</h4>
+                    <p>Descrição breve do prato e seus ingredientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+    <section class="text-center py-5 bg-dark text-white">
+        <div class="container">
+            <h3 class="mb-4">O que nossos clientes dizem</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p>"Uma experiência incrível, com pratos deliciosos e um atendimento impecável!"</p>
+                        <footer class="blockquote-footer text-white">João Silva</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p>"Ambiente perfeito para encontros e comemorações. Recomendo a todos!"</p>
+                        <footer class="blockquote-footer text-white">Maria Oliveira</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p>"Comida maravilhosa, vale cada centavo. Voltarei em breve!"</p>
+                        <footer class="blockquote-footer text-white">Carlos Santos</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Redes Sociais -->
+    <section class="text-center py-4 bg-light">
+        <div class="container">
+            <h3 class="mb-4">Siga-nos nas Redes Sociais</h3>
+            <a href="https://facebook.com/meurestaurante" target="_blank" class="text-dark mx-3">
+                <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://instagram.com/meurestaurante" target="_blank" class="text-dark mx-3">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://twitter.com/meurestaurante" target="_blank" class="text-dark mx-3">
+                <i class="fab fa-twitter fa-2x"></i>
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- CSS Inline para Estilos Personalizados -->
+<style>
+    .banner {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('@Url.Content("~/ImagesST/fundo.jpg")');
+        background-size: cover;
+        background-position: center;
+        color: white;
+    }
+</style>

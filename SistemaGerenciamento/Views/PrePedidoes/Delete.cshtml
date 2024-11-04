@@ -1,0 +1,59 @@
+﻿@model SistemaGerenciamento.Models.PrePedido
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PrePedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataHora)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>Itens</dt>
+        <dd>
+            @foreach (var item in Model.PrePedidoItens)
+            {
+                <div>
+                    <strong>@item.ItemDoMenu.Nome</strong><br />
+                    @if (!string.IsNullOrEmpty(item.ItemDoMenu.Image))
+                    {
+                        <img src="@item.ItemDoMenu.Image" width="100" height="60" alt="@item.ItemDoMenu.Nome" />
+                    }
+                </div>
+            }
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

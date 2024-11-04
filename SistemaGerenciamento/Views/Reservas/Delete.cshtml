@@ -1,0 +1,42 @@
+﻿@model SistemaGerenciamento.Models.Reserva
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Tem certeza de que deseja excluir esta reserva?</h3>
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>ID da Reserva</dt>
+        <dd>@Html.DisplayFor(model => model.Id)</dd>
+
+        <dt>Número da Mesa</dt>
+        <dd>@Html.DisplayFor(model => model.Mesa.Numero)</dd>
+
+        <dt>Data e Hora da Reserva</dt>
+        <dd>@Html.DisplayFor(model => model.DataHoraReserva)</dd>
+
+        <dt>Quantidade de Pessoas</dt>
+        <dd>@Html.DisplayFor(model => model.QuantidadePessoas)</dd>
+
+        <dt>Capacidade da Mesa</dt>
+        <dd>@Html.DisplayFor(model => model.Mesa.Capacidade)</dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

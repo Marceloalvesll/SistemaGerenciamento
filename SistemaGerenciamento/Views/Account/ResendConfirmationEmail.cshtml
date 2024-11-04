@@ -1,0 +1,15 @@
+﻿@model SistemaGerenciamento.Models.ResendConfirmationEmailViewModel
+
+<h2>Reenviar E-mail de Confirmação</h2>
+
+@using (Html.BeginForm("ResendConfirmationEmail", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken() <!-- Adicione este token para proteger contra CSRF -->
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">Reenviar E-mail</button>
+}

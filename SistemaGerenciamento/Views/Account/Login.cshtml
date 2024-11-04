@@ -1,0 +1,127 @@
+﻿@*@using SistemaGerenciamento.Models
+    @model LoginViewModel
+
+    @{
+        ViewBag.Title = "Logon";
+    }
+
+    <main aria-labelledby="title" class="container mt-5">
+        <h2 id="title" class="text-center">@ViewBag.Title</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <h4 class="text-center">Use uma conta local para fazer o logon.</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Digite seu email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Digite sua senha" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label" })
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <input type="submit" value="Logon" class="btn btn-primary" />
+                        </div>
+
+                        <p class="text-center">
+                            @Html.ActionLink("Registre-se como um novo usuário", "Register", null, new { @class = "link-primary" })
+                        </p>
+                        <p class="text-center">
+                            @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword", null, new { @class = "link-primary" })
+                        </p>
+                        <p>
+                            Não recebeu o e-mail de confirmação?
+                            <a href="@Url.Action("ResendConfirmationEmail", "Account")">Reenviar confirmação de e-mail</a>
+                        </p>
+
+
+                    }
+                </section>
+            </div>
+
+            <div class="col-md-4">
+                <section id="socialLoginForm" class="text-center">
+                    <h5>Use outro serviço para fazer o logon.</h5>
+                    <p>Conecte-se com uma conta externa:</p>
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>
+        </div>
+    </main>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+
+@using SistemaGerenciamento.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Entrar";
+}
+
+<main aria-labelledby="title" class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-6 col-lg-4 p-4 shadow rounded" style="background-color: #f8f9fa;">
+        <h2 id="title" class="text-center mb-4" style="color: #8B4513;">@ViewBag.Title</h2>
+
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger text-center" })
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label", style = "color: #8B4513;" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Digite seu email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Password, new { @class = "form-label", style = "color: #8B4513;" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Digite sua senha" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3 form-check">
+                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label", style = "color: #8B4513;" })
+                </div>
+
+                <div class="d-grid mb-3">
+                    <input type="submit" value="Entrar" class="btn btn-primary" style="background-color: #D2691E; border-color: #D2691E;" />
+                </div>
+
+                <div class="text-center small mt-2">
+                    @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword", null, new { @class = "link-primary d-block mb-1" })
+                    @Html.ActionLink("Registre-se como um novo usuário", "Register", null, new { @class = "link-primary d-block" })
+                </div>
+
+                <p class="text-center small mt-3">
+                    Não recebeu o e-mail de confirmação?
+                    <a href="@Url.Action("ResendConfirmationEmail", "Account")">Reenviar e-mail</a>
+                </p>
+            }
+        </section>
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

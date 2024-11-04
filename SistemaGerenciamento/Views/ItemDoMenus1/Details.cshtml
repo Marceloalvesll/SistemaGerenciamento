@@ -1,0 +1,56 @@
+﻿@model SistemaGerenciamento.Models.ItemDoMenu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ItemDoMenu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Categoria</dt>
+        <dd>
+            @if (Model.Categoria != null)
+            {
+                @Model.Categoria.Nome
+            }
+            else
+            {
+                <span>Não especificada</span>
+            }
+        </dd>
+
+        <dt>Nome</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>Preço</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>Disponível</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Disponivel)
+        </dd>
+
+        <dt>Imagem</dt>
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="@Model.Image" width="100px" height="60px" alt="Imagem" />
+            }
+            else
+            {
+                <span>Imagem não disponível</span>
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

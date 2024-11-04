@@ -1,0 +1,95 @@
+﻿@*@model SistemaGerenciamento.Models.RegisterViewModel
+    @{
+        ViewBag.Title = "Registre-se";
+    }
+
+    <main aria-labelledby="title">
+        <h2 id="title">@ViewBag.Title.</h2>
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h4>Criar uma nova conta.</h4>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="row">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-2 col-md-10">
+                    <input type="submit" value="Registrar" class="btn btn-outline-dark" />
+                </div>
+            </div>
+        }
+    </main>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+
+@model SistemaGerenciamento.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registre-se";
+}
+
+<main aria-labelledby="title" class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-6 col-lg-4 p-4 shadow rounded" style="background-color: #f8f9fa;">
+        <h2 id="title" class="text-center mb-4" style="color: #8B4513;">@ViewBag.Title</h2>
+
+        <section id="registerForm">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger text-center" })
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label", style = "color: #8B4513;" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Digite seu email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.Password, new { @class = "form-label", style = "color: #8B4513;" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Digite sua senha" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label", style = "color: #8B4513;" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirme sua senha" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="d-grid mb-3">
+                    <input type="submit" value="Registrar" class="btn btn-primary" style="background-color: #D2691E; border-color: #D2691E;" />
+                </div>
+
+                <p class="text-center small mt-3">
+                    Já tem uma conta?
+                    @Html.ActionLink("Entrar", "Login", "Account", null, new { @class = "link-primary" })
+                </p>
+            }
+        </section>
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
